@@ -81,6 +81,10 @@ def main():
         logging.info("Not waiting for build to finish.")
         return
 
+    logging.info("--//INFO: build logging...")
+    for line in build.progressive_output():
+        print(line)
+
     t0 = time()
     sleep(interval)
     while time() - t0 < timeout:
